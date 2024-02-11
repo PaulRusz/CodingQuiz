@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=“stylesheet” href=“style.css”>
-	<link rel=“reset.css” href=“reset.css”>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="reset.css" href="./Assets/reset.css">
     <title>Coding Quiz</title>
 </head>
-<body>
-   
+<body class="main">
+    <header class="header">
+        <h1>Coding Quiz</h1>
+    </header>
 
-    <script src=“script.js”> </script>
+    <div class="question" id="ques"></div> </div>
+    <div class="options" id="opt"></div>
+    <button onclick="checkans()" id="btn">Submit</button>
+    <div id="score"></div>
+
+    <script src="./Assets/script.js"></script>
 </body>
+<footer class="footer">
+    <h2>Made by Paul Ruszkay</h2>
+    <p>
+        &copy; 2024 Paul Ruszkay
+    </p>
+</footer>
 </html>

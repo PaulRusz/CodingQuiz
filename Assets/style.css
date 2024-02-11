@@ -1,0 +1,19 @@
+* {
+
+}
+
+.header {
+    font-size: 32 px;
+    text-align: center;
+    background-color: #F0FFF0;
+}
+
+.main {
+    background-color: #F0FFF0;
+}
+
+.footer {
+    background-color: lightblue;
+    font-size: medium;
+    text-align: center;
+}
