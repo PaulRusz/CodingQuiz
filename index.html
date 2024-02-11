@@ -7,20 +7,41 @@
     <link rel="reset.css" href="./Assets/reset.css">
     <title>Coding Quiz</title>
 </head>
-<body class="main">
+
+<body>
     <header class="header">
         <h1>Coding Quiz</h1>
     </header>
 
+    <div class="timer">
+        <p>Time: <span id="timer">0</span></p>
+    </div>
+<main class="main">
+
+    <div id="start" class="start">
+        <h2>Challenge:</h2>
+        <p> Try answering the following questions within the time limit!</p>
+        <br>
+        <p> Wrong answers will subtract time from the timer</p>
+        <button id="start-button">
+            Begin
+        </button>
+    </div>
+
+<section  class="quiz">
+
     <div class="question" id="ques"></div> </div>
     <div class="options" id="opt"></div>
-    <button onclick="checkans()" id="btn">Submit</button>
+    <button onclick="checkans()" id="submit-button">Submit</button>
     <div id="score"></div>
 
+</section>
+</main>
     <script src="./Assets/script.js"></script>
 </body>
+
 <footer class="footer">
-    <h2>Made by Paul Ruszkay</h2>
+    <h2>  Made by Paul Ruszkay  </h2>
     <p>
         &copy; 2024 Paul Ruszkay
     </p>
