@@ -59,6 +59,17 @@
     right: 15px;
 }
 
+.container {
+    width: 40%;
+    padding: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    background: white;
+    border-radius: 2%;
+    align-items: center;
+}
+
+
 
 .footer {
     background-color: #F0FFF0;
@@ -66,3 +77,12 @@
     text-align: center;
     padding: 10px;
 }
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 80%;
+    }}

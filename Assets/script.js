@@ -6,27 +6,8 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButon) {
 }
 */
 
-let timerEl = document.querySelector("#timer")
-let startButton = document.querySelector("#start")
 
-let time = questions.length * 10;
-let timerID;
-
-
-function start() {
-    timerID = setinterval(clockTick, 1500)
-    timerEl.textContent = time;
-
-    let startScreenEl = 
-    document.getElementById("start")
-    startScreenEl.setAttribute ("class", "hide")
-    questionsEl.removeAttribute("class")
-    getQuestion()
-}
-startButton.onclick = start;
-
-
-var testQuestions = [
+var testQuestions = [    
     {
         prompt: "What does HTML stand for?",
         options: [
@@ -48,14 +29,39 @@ var testQuestions = [
     }
 ]
 
+let timerEl = document.querySelector("timer")
+let startButton = document.querySelector("start")
+let questionsEl = document.querySelector("testQuestions")
+
+let time = testQuestions.length * 10;
+let timerID;
+
 
 
 function timerClock() {
     time--;
     timerEl.textContent = time;
     if (time <= 0) {
-        queizEnd();
+        quizEnd();
     }
+    timerClock()
 }
+
+
+
+
+function start() {
+    timerID = setinterval(clockTick, 1500)
+    timerEl.textContent = time;
+
+    let startScreenEl = 
+    document.getElementById("start")
+    startScreenEl.setAttribute ("class", "hide")
+    questionsEl.removeAttribute("class")
+    start()
+}
+startButton.onclick = start;
+
+
 
 
