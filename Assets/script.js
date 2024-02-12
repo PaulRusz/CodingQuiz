@@ -26,6 +26,29 @@ function start() {
 startButton.onclick = start;
 
 
+var testQuestions = [
+    {
+        prompt: "What does HTML stand for?",
+        options: [
+            "Hyper Text Markup Language",
+            "Home Text Managment Link",
+            "Hyper Link Text Manager"
+        ],
+        answer: "Hyper Text Markup Language"
+    },
+
+    {
+        prompt: "What is the universal selector for CSS?",
+        options: [
+            "#",
+            ".",
+            "*"
+        ],
+        answer: "*"
+    }
+]
+
+
 
 function timerClock() {
     time--;
@@ -34,3 +57,5 @@ function timerClock() {
         queizEnd();
     }
 }
+
+
