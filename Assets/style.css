@@ -2,6 +2,14 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 .header {
     font-size: 32 px;
     text-align: center;
@@ -17,6 +25,7 @@
     align-items: center;
     justify-content: center;
     color: black;
+    display: none;
 }
 
 #start-screen {
@@ -42,7 +51,7 @@
     margin-bottom: 15px;
 }
 
-#startButton, #submitButton {
+#startQuiz, #submitButton {
     font-size: 15px;
     padding: 5px;
     background-color: whitesmoke;
@@ -76,11 +85,9 @@
     font-size: medium;
     text-align: center;
     padding: 10px;
+    margin-top: 1%;
 }
 
-.hide {
-    display: none;
-}
 
 @media only screen and (max-width: 600px) {
     .container {

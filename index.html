@@ -18,27 +18,28 @@
     </div>
 <main class="main">
 
-    <div id="start-screen" class="start">
+    <div id="start-screen">
         <div class="container">
         <h2>Challenge:</h2>
         <p> Try answering the following questions within the time limit!</p>
         <br>
         <p> Wrong answers will subtract time from the timer</p>
-        <button id="startButton">
+        <button id="startQuiz">
             Start Test
         </button>
         </div>
     </div>
 
-<section  class="quiz">
-    <div class="container">
-        <div class="question" id="ques"></div>
-        <div class="options" id="opt"></div>
+    <div  class="quiz hide">
+        <div class="container">
+        <h2 class="question" id="question"></h2>
+        <ul class="choices" id="choices"></ul>
+        <div class="answer" id="answer"></div>
         <button id="submitButton">Submit</button>
         <div id="score"></div>
     </div>
 
-</section>
+    </div>
 
 </main>
 <script src="./assets/script.js"></script>

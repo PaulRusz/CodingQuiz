@@ -1,138 +1,48 @@
  var testQuestions = [    
     {
         question: "What does HTML stand for?",
-        options: [
+        choices: [
             "Hyper Text Markup Language",
             "Home Text Managment Link",
-            "Hyper Link Text Manager"
-        ],
+            "Hyper Link Text Manager"],
         answer: "Hyper Text Markup Language"
     },
 
     {
         question: "What is the universal selector for CSS?",
-        options: [
+        choices: [
             "#",
             ".",
-            "*"
-        ],
+            "*"],
         answer: "*"
     }
 ]
 
-let quizContainer = document.querySelector("container")
-let timerEl = document.querySelector("time")
-let startButton = document.querySelector("start")
-let questionsEl = document.querySelector("question")
-let optionsEl = document.querySelector("options")
-let answerEl = document.querySelector("answer")
+var testQuestionsIndex = 0
 
-let time = testQuestions.length * 10;
-let timerID;
-
-let currentQuestion = 0;
-let score = 0;
-let incorrectAnswer = 0;
-
-
-
-/*function timerClock() {
-    time--;
-    timerEl.textContent = time;
-    if (time <= 0) {
-        quizEnd();
-    }
-    timerClock()
-}
-*/
-
-
-/*
-function start() {
-    let startScreenEl = 
-    document.getElementById("start-screen")
-    startScreenEl.setAttribute ("class", "hide")
-    questionsEl.removeAttribute("class")
-    startQuestions()
-}
-
-function startQuestions() {
-    let currentQuestion = question[currentQuestion];
-    let quesEl = document.getElementById("ques")
-
-    quesEl.textContent = currentQuestion.question;
-    optionsEl = ""
-    currentQuestion.options.forEach(
-        function (choice, i) {
-            let choiceButton = document.createElement("button");
-            choiceButton.setAttribute("value", choice);
-            choiceButton.textContent = i + 1 + ". " + choice;
-            choiceButton.onclick = questionClick;
-            optionsEl.appendChild(choiceButton)
-        }
-    )
-}
-*/
+var startQuizEl = document.querySelector("#startQuiz")
+var quiz = document.querySelector(".quiz")
+var startScreenEl = document.querySelector("#start-screen")
+var questionEl = document.querySelector("#question")
+var choicesEl = document.querySelector("#choices")
 
 
 
 
-
-/*function showQuestion() {
-    const question = quizData[currentQuestion];
-    questionElement.innerText = question.question;
-  
-    optionsElement.innerHTML = "";
-    question.options.forEach(option => {
-      const button = document.createElement("button");
-      button.innerText = option;
-      optionsElement.appendChild(button);
-      button.addEventListener("click", selectAnswer);
-    });
-  }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 function startQuiz() {
-    var testData = testQuestions[currentQuestion];
-    questionsEl = testData.testData;
-
-    optionsEl = ""
-    testData.options.forEach(option =>  
-    {
-        var button = document.createElement("button");
-        button.innerText = option;
-        optionsEl.appendChild(button);
-        button.addEventListener("click", selectAnswer);
-    });
+    startScreenEl.setAttribute("class", "hide");
+    updateQuestion();
+    quiz.setAttribute("class", "show");
 }
 
-function selectAnswer() {
-    var selectedButton = target;
-    var answer = testQuestions[currentQuestion].answer;
-    
-    if (selectedButton === answer) {
-        score++;
+function updateQuestion() {
+    questionEl.textContent=testQuestions[testQuestionsIndex].testQuestions
+    for (var i = 0; i<testQuestions[testQuestionsIndex].choices.length; i++){
+        var element = document.createElement("li");
+        element.textContent = testQuestions[testQuestionsIndex].choices[i]
+
+        choicesEl.appendChild(element);
     }
+}
 
-    currentQuestion++;
-
-    if (currentQuestion < testQuestions.length) {
-        startQuiz();
-} }
-
-startQuiz();
-*/
+startQuizEl.addEventListener("click", startQuiz);
