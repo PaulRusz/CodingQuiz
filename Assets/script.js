@@ -46,7 +46,9 @@ function startTimer() {
             endGame();
         }
     }, 1000);
+
 }
+
 
 
 function startQuiz() {
