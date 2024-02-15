@@ -71,7 +71,7 @@ function updateQuestion() {
 function endGame() {
     questionEl.setAttribute("class", "hide")
     choicesEl.setAttribute("class", "hide")
-    resultEl.textContent = ("Game Over")
+    resultEl.textContent = ("Time's up!")
     formEl.setAttribute("class", "show")
 }
 
@@ -94,6 +94,10 @@ function handleAnswerSubmission(event) {
 
 }
 
+
+
+
+
 form.onLoad = function () {
     if (localStorage) {
 
@@ -108,6 +112,15 @@ form.onLoad = function () {
 }
 
 function showResults() {
+    showResults.style.display = "block"
+    let scorePercent = math.round(100 * score / testQuestions.length);
+
+    showResults.innerHTML = scorePercent
+
+}
+
+
+function retryQuiz() {
 
 }
 
