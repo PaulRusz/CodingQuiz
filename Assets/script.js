@@ -19,6 +19,10 @@ var testQuestions = [
 ]
 
 var testQuestionsIndex = 0
+var correctCounter = 0
+var incorrectCounter = 0
+var storeName = 0
+var storeScore = 0
 
 var startQuizEl = document.querySelector("#startQuiz")
 var quiz = document.querySelector(".quiz")
@@ -73,6 +77,7 @@ function endGame() {
     choicesEl.setAttribute("class", "hide")
     resultEl.textContent = ("Time's up!")
     formEl.setAttribute("class", "show")
+    getScore();
 }
 
 function handleAnswerSubmission(event) {
@@ -91,25 +96,48 @@ function handleAnswerSubmission(event) {
     } else {
         console.log("End of Quiz")
     }
-
 }
 
+function winGame() {
+    resultEl.textContent = "You won!"
+    correctCounter++
+    setScore()
+}
 
+function loseGame() {
+    resultEl.textContent = "You lost!"
+    incorrectCounter++
+    setScore()
+}
 
+function setScore() {
+    correct.textContent = correctCounter
+    localStorage.setItem("correctCount", correctCounter)
+    incorrect.textContent = incorrectCounter
+    localStorage.setItem("incorrectCounter", incorrectCounter)
+}
 
+function storeData() {
+    storeName.textContent = storeName
+    localStorage.setItem("Stored Name", storeName)
+    storeScore.textContent = storeScore
+    localStorage.setItem("Stored Score", storeScore)
+}
 
-form.onLoad = function () {
-    if (localStorage) {
-
-        document.getElementById('form').addEventListener('submit', function () {
-            var name = document.getElementById("name").value;
-            var score = document.getElementById("score").value;
-
-            localStorage.setItem("name", name)
-            localStorage.setItem("score", score)
-        })
+function getScore() {
+    var storedCorrect = localStorage.getItem("CorrectCount")
+    if (storedCorrect === null) {
+        correctCounter = 0
+    } else {
+        correctCounter = storedCorrect
     }
+    correct.textContent = correctCounter
 }
+
+
+
+
+
 
 function showResults() {
     showResults.style.display = "block"
