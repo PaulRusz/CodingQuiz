@@ -23,6 +23,7 @@ var correctCounter = 0
 var incorrectCounter = 0
 var storeName = 0
 var storeScore = 0
+var initials = ""
 
 var startQuizEl = document.querySelector("#startQuiz")
 var quiz = document.querySelector(".quiz")
@@ -33,8 +34,11 @@ var resultEl = document.querySelector("#result")
 var timerEl = document.querySelector("#timer")
 var buttonEl = document.querySelector("#button")
 var formEl = document.querySelector("#form")
+var nameEl = document.querySelector("#name")
+var scoreEl = document.querySelector("#score")
 
-var timer = 15;
+
+var timer = 5;
 
 
 function startTimer() {
@@ -79,7 +83,7 @@ function endGame() {
     choicesEl.setAttribute("class", "hide")
     resultEl.textContent = ("Time's up!")
     formEl.setAttribute("class", "show")
-    getScore();
+    scoreEl.textContent = correctCounter;
 }
 
 function handleAnswerSubmission(event) {
@@ -87,9 +91,9 @@ function handleAnswerSubmission(event) {
     var correctAnswer = testQuestions[testQuestionsIndex].answer;
 
     if (answer === correctAnswer) {
-        console.log("Correct")
+        correctCounter++
     } else {
-        console.log("Incorrect")
+        incorrectCounter++
     }
     testQuestionsIndex = testQuestionsIndex + 1
 
@@ -102,38 +106,31 @@ function handleAnswerSubmission(event) {
 
 function winGame() {
     resultEl.textContent = "You won!"
-    correctCounter++
     setScore()
 }
 
 function loseGame() {
     resultEl.textContent = "You lost!"
-    incorrectCounter++
     setScore()
 }
 
-function setScore() {
-    correct.textContent = correctCounter
+function setScore(e) {
+    e.preventDefault()
+    scoreEl.textContent = correctCounter
+    console.log(initials)
+    initials = nameEl.value
+    console.log(nameEl)
     localStorage.setItem("correctCount", correctCounter)
-    incorrect.textContent = incorrectCounter
-    localStorage.setItem("incorrectCounter", incorrectCounter)
+    localStorage.setItem("initials", initials)
 }
+
+formEl.addEventListener("submit", setScore)
 
 function storeData() {
     storeName.textContent = storeName
     localStorage.setItem("Stored Name", storeName)
     storeScore.textContent = storeScore
     localStorage.setItem("Stored Score", storeScore)
-}
-
-function getScore() {
-    var storedCorrect = localStorage.getItem("CorrectCount")
-    if (storedCorrect === null) {
-        correctCounter = 0
-    } else {
-        correctCounter = storedCorrect
-    }
-    correct.textContent = correctCounter
 }
 
 
