@@ -36,9 +36,10 @@ var buttonEl = document.querySelector("#button")
 var formEl = document.querySelector("#form")
 var nameEl = document.querySelector("#name")
 var scoreEl = document.querySelector("#score")
+var scoreEl2 = document.querySelector(".score")
 
 
-var timer = 5;
+var timer = 10;
 
 
 function startTimer() {
@@ -84,6 +85,7 @@ function endGame() {
     resultEl.textContent = ("Time's up!")
     formEl.setAttribute("class", "show")
     scoreEl.textContent = correctCounter;
+    scoreEl2.textContent = ("Score: ")
 }
 
 function handleAnswerSubmission(event) {
@@ -138,11 +140,8 @@ function storeData() {
 
 
 
-function showResults() {
-    showResults.style.display = "block"
-    let scorePercent = math.round(100 * score / testQuestions.length);
-
-    showResults.innerHTML = scorePercent
+function showScore() {
+    scoreEl.textContent = ("Score: ")
 
 }
 
