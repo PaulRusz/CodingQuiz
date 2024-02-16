@@ -15,6 +15,11 @@ var testQuestions = [
             ".",
             "*"],
         answer: "*"
+    },
+    {
+        question: "What book is the character Ronald Weasley from?",
+        choices: ["Game of Thrones", "Harry Potter", "Chronicles of Narnia"],
+        answer: "Harry Potter"
     }
 ]
 
@@ -65,7 +70,10 @@ function startQuiz() {
 }
 
 function updateQuestion() {
-
+    if (testQuestionsIndex === questionEl.length) {
+        setTimeout(endGame, 1000)
+        return;
+    }
     questionEl.textContent = testQuestions[testQuestionsIndex].question;
     choicesEl.innerHTML = ""
     for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
