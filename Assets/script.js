@@ -70,21 +70,23 @@ function startQuiz() {
 }
 
 function updateQuestion() {
-    if (testQuestionsIndex === questionEl.length) {
-        setTimeout(endGame, 1000)
-        return;
-    }
-    questionEl.textContent = testQuestions[testQuestionsIndex].question;
-    choicesEl.innerHTML = ""
-    for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
-        var listItem = document.createElement("li");
-        var button = document.createElement("button");
-        button.textContent = testQuestions[testQuestionsIndex].choices[i]
+    /*
+     if (testQuestionsIndex === questionEl.length) {
+         setTimeout(endGame, 1000)
+         return;
+         */
+}
+questionEl.textContent = testQuestions[testQuestionsIndex].question;
+choicesEl.innerHTML = ""
+for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
+    var listItem = document.createElement("li");
+    var button = document.createElement("button");
+    button.textContent = testQuestions[testQuestionsIndex].choices[i]
 
-        button.addEventListener("click", handleAnswerSubmission)
-        listItem.appendChild(button)
-        choicesEl.appendChild(listItem);
-    }
+    button.addEventListener("click", handleAnswerSubmission)
+    listItem.appendChild(button)
+    choicesEl.appendChild(listItem);
+}
 }
 
 function endGame() {
