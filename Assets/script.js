@@ -87,7 +87,7 @@ for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
     listItem.appendChild(button)
     choicesEl.appendChild(listItem);
 }
-}
+
 
 function endGame() {
     questionEl.setAttribute("class", "hide")
