@@ -70,12 +70,13 @@ function startQuiz() {
 }
 
 function updateQuestion() {
+
     /*
      if (testQuestionsIndex === questionEl.length) {
          setTimeout(endGame, 1000)
          return;
      }
-         */
+     */
     questionEl.textContent = testQuestions[testQuestionsIndex].question;
     choicesEl.innerHTML = ""
     for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
@@ -88,6 +89,7 @@ function updateQuestion() {
         choicesEl.appendChild(listItem);
     }
 }
+
 
 function endGame() {
     questionEl.setAttribute("class", "hide")
@@ -114,6 +116,9 @@ function handleAnswerSubmission(event) {
     } else {
         console.log("End of Quiz")
     }
+
+    if (timer <= 0 || testQuestionsIndex === testQuestions.length)
+        endGame();
 }
 
 function winGame() {
