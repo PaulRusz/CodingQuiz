@@ -1,3 +1,4 @@
+//quiz questions
 var testQuestions = [
     {
         question: "What does HTML stand for?",
@@ -23,6 +24,7 @@ var testQuestions = [
     }
 ]
 
+//variables for the Javascript functions
 var testQuestionsIndex = 0
 var correctCounter = 0
 var incorrectCounter = 0
@@ -44,9 +46,10 @@ var scoreEl = document.querySelector("#score")
 var scoreEl2 = document.querySelector(".score")
 
 
-var timer = 10;
+var timer = 15;
 
 
+//the function timer set to count down every second until it reaches the end, at which time it will load the endGame() function
 function startTimer() {
     setInterval(function () {
         if (timer > 0) {
@@ -60,7 +63,7 @@ function startTimer() {
 }
 
 
-
+//starts the quiz and allows the timer to begin counting down
 function startQuiz() {
     startScreenEl.classList.add("hide");
     updateQuestion();
@@ -69,14 +72,9 @@ function startQuiz() {
     startTimer();
 }
 
+//after making a choice, this function allows the user to proceed to the next question
 function updateQuestion() {
 
-    /*
-     if (testQuestionsIndex === questionEl.length) {
-         setTimeout(endGame, 1000)
-         return;
-     }
-     */
     questionEl.textContent = testQuestions[testQuestionsIndex].question;
     choicesEl.innerHTML = ""
     for (var i = 0; i < testQuestions[testQuestionsIndex].choices.length; i++) {
@@ -91,6 +89,7 @@ function updateQuestion() {
 }
 
 
+//hides screens when the quiz is complete and loads the score
 function endGame() {
     questionEl.setAttribute("class", "hide")
     choicesEl.setAttribute("class", "hide")
@@ -161,11 +160,11 @@ function showScore() {
 }
 
 
-function retryQuiz() {
+/*function retryQuiz() {
 
-}
-
-
+}*/
 
 
+
+//starts the quiz when the button is clicked
 startQuizEl.addEventListener("click", startQuiz);

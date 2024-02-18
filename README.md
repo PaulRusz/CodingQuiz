@@ -29,6 +29,9 @@ To complete the quiz the user must select an answer which will then generate the
 
 N/A
 
+## Link
+https://paulrusz.github.io/CodingQuiz/
+
 ## License
 
 MIT License

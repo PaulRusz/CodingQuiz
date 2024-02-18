@@ -49,6 +49,7 @@ button {
     transition-duration: 0.4s;
 }
 
+/* changes the button when a user hovers over it */
 button:hover {
     background-color: black;
     /* grey */
@@ -68,6 +69,7 @@ button:hover {
     font-size: 25px;
 }
 
+/* styling for the start and submit buttons */
 #startQuiz,
 #submitButton {
     font-size: 15px;
@@ -80,12 +82,14 @@ button:hover {
     border-radius: 15%;
 }
 
+/* positions the timer in the upper right corner of the screen */
 .timer {
     position: absolute;
     top: 15px;
     right: 15px;
 }
 
+/* builds the container used to contain the questions, score, and name submission */
 .container,
 .form {
     width: 40%;
@@ -107,7 +111,7 @@ button:hover {
     margin-top: 1%;
 }
 
-
+/* assists with hiding and displaying certain questions and containers as the quiz progresses */
 .hide {
     display: none !important;
 }
